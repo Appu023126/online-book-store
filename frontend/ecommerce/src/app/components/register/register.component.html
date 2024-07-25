@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Module</title>
+  <link rel="stylesheet" href="./register.component.css">
+</head>
+<body >
+  <div class="register-container">
+    <div class="register-box" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVIN8xtbDZ49qLg83nbwOx7GrVm2BEFgOihg&s); background-size: cover; background-position: center; color:white;">
+      
+      <div class="form-section">
+        <h2>Register</h2>
+        <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+          <div formGroupName="customer">
+            <!-- First Name -->
+            <div class="my-3">
+              <label class="form-label">First Name:</label>
+              <input type="text" class="form-control" formControlName="firstName" />
+              <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger">
+                <div *ngIf="firstName?.errors?.['required']">First Name is required.</div>
+                <div *ngIf="firstName?.errors?.['pattern']">Only alphabets are allowed.</div>
+              </div>
+            </div>
+            <!-- Last Name -->
+            <div class="my-3">
+              <label class="form-label">Last Name:</label>
+              <input type="text" class="form-control" formControlName="lastName" />
+              <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger">
+                <div *ngIf="lastName?.errors?.['required']">Last Name is required.</div>
+                <div *ngIf="lastName?.errors?.['pattern']">Only alphabets are allowed.</div>
+              </div>
+            </div>
+            <!-- Email -->
+            <div class="my-3">
+              <label class="form-label">Email:</label>
+              <input type="email" class="form-control" formControlName="email" />
+              <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                <div *ngIf="email?.errors?.['required']">Email is required.</div>
+                <div *ngIf="email?.errors?.['email']">Invalid email id.</div>
+              </div>
+            </div>
+            <!-- Password -->
+            <div class="my-3">
+              <label class="form-label">Password:</label>
+              <input type="password" class="form-control" formControlName="password" />
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <div *ngIf="password.errors?.['required']">Password is required.</div>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="my-3">
+              <label class="form-label">Mobile:</label>
+              <input type="tel" maxlength="10" class="form-control" formControlName="mobile" />
+              <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger">
+                <div *ngIf="mobile.errors?.['required']">Mobile is required.</div>
+                <div *ngIf="mobile.errors?.['pattern']">Invalid mobile number.</div>
+              </div>
+            </div>
+          </div>
+          <!-- Submit button -->
+          <div class="d-grid">
+            <input type="submit" value="Register" class="btn btn-primary" />
+          </div>
+        </form>
+      </div>
+        <div class="welcome-section" style="background-color:#86242e;background-position: center; background-size: cover; background-image:url(data:image/jpeg;base64,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)">
+>
+        <h2>Welcome to Registration</h2>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

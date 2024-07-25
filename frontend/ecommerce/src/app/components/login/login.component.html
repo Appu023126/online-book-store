@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Module</title>
+  <link rel="stylesheet" href="./login.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmd4fStjQVrEKkCuru4eIp2597r3pq0ZIDvg&s); background-size: cover;">
+  <div class="login-container">
+    <div class="login-box" style="background-image:url(data:image/jpeg;base64,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);background-position: center; background-size: cover;">
+      <div class="signin-section">
+        <h2 >Sign In</h2>
+        <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+          <div class="input-container">
+            <label for="email">Email</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="text" id="email" formControlName="email" placeholder="Email">
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
+              <div *ngIf="email.errors['required']">Email is required.</div>
+              <div *ngIf="email.errors['email']">Invalid email format.</div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="password">Password</label>
+            <div class="input-icon">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="password" formControlName="password" placeholder="Password">
+            </div>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+              <div *ngIf="password.errors['required']">Password is required.</div>
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="customerFormGroup.invalid" style="background-color:	#428de3; height:50px; border-radius: 10px;">Sign In</button>
+        </form>
+      </div>
+      <div class="welcome-section" style="background-color:#86242e;background-position: center; background-size: cover; background-image:url(https://img.freepik.com/premium-photo/isometric-modern-online-bookstore-library-concept-ebooks-app_636638-3262.jpg?ga=GA1.1.1233038012.1717588626&semt=ais_user)">
+        <h2>Welcome to login</h2>
+        <p>Don't have an account?</p>
+        <button class="signup-button" (click)="redirectToSignup()">REGISTER</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
